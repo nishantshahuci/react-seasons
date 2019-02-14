@@ -8,25 +8,26 @@ class App extends Component {
     constructor (props) {
         super(props);
 
+        // initialize state
         this.state = {
             lat: null
         };
-    }
-
-    // must define this function
-    render () {
 
         // get the user's current position
         window.navigator.geolocation.getCurrentPosition(
             position => {
-                console.log(position);
+                // must call setState to change state
+                this.setState({ lat: position.coords.latitude });
             },
             error => {
                 console.log(error);
             }
         );
+    }
 
-        return <div>Latitude: </div>;
+    // must define this function
+    render () {
+        return <div>Latitude: {this.state.lat}</div>;
     }
 
 };
