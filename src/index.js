@@ -10,7 +10,8 @@ class App extends Component {
 
         // initialize state
         this.state = {
-            lat: null
+            lat: null,
+            errorMessage: ''
         };
 
         // get the user's current position
@@ -20,14 +21,20 @@ class App extends Component {
                 this.setState({ lat: position.coords.latitude });
             },
             error => {
-                console.log(error);
+                this.setState({ errorMessage: error.message });
             }
         );
     }
 
     // must define this function
     render () {
-        return <div>Latitude: {this.state.lat}</div>;
+        if (this.state.errorMessage && !this.state.lat) {
+            return <div>Error: {this.state.errorMessage}</div>;
+        } else if (!this.state.errorMessage && this.state.lat) {
+            return <div>Latitude: {this.state.lat}</div>;
+        }
+
+        return <div>Loading!</div>;
     }
 
 };
