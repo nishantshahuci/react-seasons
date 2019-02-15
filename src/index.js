@@ -10,7 +10,7 @@ class App extends Component {
         errorMessage: ''
     };
 
-    componentDidMount () => {
+    componentDidMount = () => {
         // get the user's current position
         window.navigator.geolocation.getCurrentPosition(
             position => {
