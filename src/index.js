@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 // import components
 import SeasonDisplay from './SeasonDisplay';
+import Loader from './Loader';
 
 // App component
 class App extends Component {
@@ -34,7 +35,7 @@ class App extends Component {
             return <SeasonDisplay lat={this.state.lat} />;
         }
 
-        return <div>Loading!</div>;
+        return <Loader message="Please accept the location request"/>;
     }
 
 };

@@ -39,5 +39,5 @@ const SeasonDisplay = (props) => {
     );
 };
 
-// export component
+// export the component
 export default SeasonDisplay;
