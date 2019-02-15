@@ -27,8 +27,7 @@ class App extends Component {
         );
     }
 
-    // must define this function
-    render () {
+    renderContent() {
         if (this.state.errorMessage && !this.state.lat) {
             return <div>Error: {this.state.errorMessage}</div>;
         } else if (!this.state.errorMessage && this.state.lat) {
@@ -36,6 +35,11 @@ class App extends Component {
         }
 
         return <Loader message="Please accept the location request"/>;
+    }
+
+    // must define this function
+    render () {
+        return <div>{ this.renderContent() }</div>;
     }
 
 };
